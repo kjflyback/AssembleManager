@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    </meta>
+    <title>AssembleManager</title>
+    <link rel="stylesheet" th:href="@{bootstrap/css/bootstrap.min.css}" />
+    <link rel="stylesheet" th:href="@{bootstrap/css/bootstrap-theme.min.css}" />
+    <script type="text/javascript" th:src="@{jQuery/jquery.min.js}"></script>
+    <script type="text/javascript" th:src="@{bootstrap/js/bootstrap.min.js}"></script>
+    <script type="text/javascript" th:src="@{prjMgr.js}">
+
+    </script>
+    
+</head>
+
+<body>
+    <!-- .container 类用于固定宽度并支持响应式布局的容器。 -->
+    <div class="container">
+        <!-- 栅格系统用于通过一系列的行（row）与列（column）的组合来创建页面布局 -->
+        
+        <div class="page-header center">
+            <div class="row">
+                <h1 th:text="${title}"></h1><h1 th:text="${errmsg}?${errmsg}:''"></h1>
+            </div >
+
+        </div>
+
+            <form role="form" action="newProject" method="GET" id="prjForm">
+                <div class="col-lg-5">
+                <div class="input-group input-group-sm">
+                    <span class="input-group-addon">工程名称:</span>
+                    <input type="text" class="form-control" placeholder="Project Name" name="prjName"/>
+                </div>
+                <div class="input-group input-group-sm">
+                    <span class="input-group-addon">工程路径:</span>
+                    <input type="text" class="form-control" placeholder="svn://localhost/" name="remotepath"/>
+                </div>
+                <div class="input-group input-group-sm">
+                    <table class="table table-condensed">
+                        <thead>
+                            <tr><th>key</th><th>说明</th></tr>
+                        </thead>
+                        <tr><td>{rootpath}</td><td>执行路径</td></tr>
+                        <tr><td>{logpath}</td><td>日志输出路径</td></tr>
+                    </table>
+                    
+                </div>
+                <div class="input-group input-group-sm">
+                    <span class="input-group-addon">执行编译命令:</span>
+                    <input type="text" class="form-control" placeholder=".eg java -c {rootpath} -log {logpath}" name="command"/>
+                </div>
+                <div class="input-group input-group-sm">
+                <button class="btn btn-default" id="addNewPrj" type="button" >加入新工程</button>
+                </div>
+            </form>
+            
+            <form role="form">
+                <div class="col-lg-12">
+                    <table class="table">
+                        <caption>工程列表</caption>
+                        <thead>
+                            <tr>
+                                <th>-</th>
+                                <th>工程名称</th>
+                                <th>工程路径</th>
+                                <th>编译命令</th>
+                                <th>版本</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr th:each="entries,stat:${items}" th:style="'background-color:'+@{${stat.odd}?'#F2F2F2'}">
+                                <td th:text="${stat.count}"></td>
+                                <td th:text="${entries['projectName']}"></td>
+                                <td th:text="${entries['remotePath']}"></td>
+                                <td th:text="${entries['compileCommandLine']}"></td>
+                                <td><select th:attr="project=@{${entries['projectName']} + '_ver'}">
+                                </select></td>
+                                <td>
+                                    <div class="input-group input-group-btn">
+                                        
+                                        <button type="button" class="btn btn-default btn-sm" action="getver"
+                                            th:attr="project=${entries['projectName']}" title="获取版本">
+                                            <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>显示版本
+                                        </button>
+                                        <button type="button" class="btn btn-default btn-sm" action="compile"
+                                            th:attr="project=${entries['projectName']}" title="编译">
+                                            <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>编译
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </form>
+        
+    </div>
+</body>
+
+</html>

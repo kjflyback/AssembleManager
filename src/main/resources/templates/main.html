@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    </meta>
+    <title>AssembleManager</title>
+    <link rel="stylesheet" th:href="@{bootstrap/css/bootstrap.min.css}" />
+    <link rel="stylesheet" th:href="@{bootstrap/css/bootstrap-theme.min.css}" />
+    <script type="text/javascript" th:src="@{jQuery/jquery.min.js}"></script>
+    <script type="text/javascript" th:src="@{bootstrap/js/bootstrap.min.js}"></script>
+    <script type="text/javascript" th:src="@{index.js}">
+
+    </script>
+    <style>
+        tr {
+            height: 1cm;
+        }
+    
+        td {
+            width: 1cm;
+            text-align: center;
+            vertical-align: middle;
+        }
+    
+        table,
+        table tr th,
+        table tr td {
+            border: 1px solid black;
+        }
+    
+        table {
+    
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- .container 类用于固定宽度并支持响应式布局的容器。 -->
+    <div class="container">
+        <!-- 栅格系统用于通过一系列的行（row）与列（column）的组合来创建页面布局 -->
+        
+        <div class="page-header center">
+            <div class="row">
+                <h1 th:text="${title}"></h1>
+            </div >
+            <div class="row">
+                <span>工程:</span><select id="project" col="180"></select>
+            </div >
+            <div class="row">
+                <span>问题:</span><input type="text" id="issue" /><button id="commitissue" >提交问题</button>
+            </div >
+            <div class="row">
+            </div >
+            <div class="row">
+           <table>
+               <tr><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td></tr>
+               <tr><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td></tr>
+               <tr><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td></tr>
+               <tr><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td></tr>
+               <tr><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td></tr>
+               <tr><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td></tr>
+               <tr><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td></tr>
+           </table>
+           </div>
+        </div>
+    </div>
+</body>
+
+</html>
