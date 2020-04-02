@@ -15,15 +15,19 @@ Java + SpringBoot
 随着需要编译的代码和平台越来越多，东西越多，越需要一个比较统一的平台对最终代码进行编译，通常这么一个平台可能是需要公司有专人进行维护的，这里尝试做一个简化的版本，看看能不能用起来。
 
 cn.properties中
+
 yourcompany.title是web显示的标题
+
 yourcompany.dbpath是数据保存的目录，数据文件叫做db.xml
 
 目前使用xml保存数据，没有数据库支持，感兴趣的同学可以修改AMDataBaseImpl.java或者继承AMDataBase.java来访问自己的数据库
 
 application.properties
+
 里的有关数据库的内容是没用的可以去掉
 
 spring.jpa.*
+
 spring.datasource.*
 
 MacSVNAMItemImpl.java 继承自 AMItem.java
