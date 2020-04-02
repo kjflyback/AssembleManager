@@ -38,6 +38,4 @@ MacSVNAMItemImpl.java 继承自 AMItem.java
 服务器根据特定的代码版本信息从svn获取到特定目录进行编译
 编译后内容的展示，编译失败日志的展示
 支持Windows/linux/mac/等操作系统的编译环境
-————————————————
-版权声明：本文为CSDN博主「魔芋」的原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接及本声明。
-原文链接：https://blog.csdn.net/flyback/article/details/105254708
+
